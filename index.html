@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn GSAP Step by Step</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen bg-slate-950 px-4 py-10 text-white sm:px-8">
+    <main class="mx-auto max-w-4xl space-y-20">
+      <header class="space-y-4 text-center">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-violet-400">A beginner-friendly guide</p>
+        <h1 class="text-4xl font-bold sm:text-6xl">Learn GSAP step by step</h1>
+        <p class="mx-auto max-w-2xl text-slate-400">
+          Read each level from top to bottom. Try the controls, scroll through the demos,
+          and look at <code class="text-violet-300">script.js</code> to see how they work.
+        </p>
+      </header>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 1</p>
+          <h2 class="mt-1 text-3xl font-bold">The first animations</h2>
+          <p class="mt-2 text-slate-400">A tween is one animation from a starting state to an ending state.</p>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <article class="rounded-xl bg-slate-900 p-5">
+            <h3 class="font-semibold">gsap.to()</h3>
+            <p class="mt-2 text-sm text-slate-400">Animate to new values. The box moves right and returns.</p>
+            <div class="demo-area mt-4 flex h-24 items-center overflow-hidden rounded-lg bg-slate-800 p-3"><div class="to-box h-12 w-12 shrink-0 rounded-lg bg-violet-400"></div></div>
+          </article>
+          <article class="rounded-xl bg-slate-900 p-5">
+            <h3 class="font-semibold">gsap.from()</h3>
+            <p class="mt-2 text-sm text-slate-400">Start with the values you give, then animate to normal.</p>
+            <div class="demo-area mt-4 flex h-24 items-center overflow-hidden rounded-lg bg-slate-800 p-3"><div class="from-box h-12 w-12 shrink-0 rounded-lg bg-sky-400"></div></div>
+          </article>
+          <article class="rounded-xl bg-slate-900 p-5">
+            <h3 class="font-semibold">gsap.fromTo()</h3>
+            <p class="mt-2 text-sm text-slate-400">Set both the start and end values yourself.</p>
+            <div class="demo-area mt-4 flex h-24 items-center overflow-hidden rounded-lg bg-slate-800 p-3"><div class="fromto-box h-12 w-12 shrink-0 rounded-lg bg-pink-400"></div></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 2</p>
+          <h2 class="mt-1 text-3xl font-bold">Animation controls</h2>
+          <p class="mt-2 text-slate-400">A tween is an object. Save it in a variable to control it later.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">play()</code> starts or plays forward.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">pause()</code> stops at the current frame.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">resume()</code> continues in the current direction.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">reverse()</code> plays toward the beginning.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">restart()</code> starts again from the beginning.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">kill()</code> stops and removes the animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">repeat: 2</code> plays two extra times; <code class="text-violet-300">-1</code> loops forever.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">yoyo: true</code> plays back and forth on repeats.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">timeScale(2)</code> plays twice as fast; <code class="text-violet-300">0.5</code> is half speed.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">onStart</code>, <code class="text-violet-300">onUpdate</code>, <code class="text-violet-300">onComplete</code> run at different moments.</p>
+        </div>
+        <div class="rounded-xl bg-slate-900 p-5">
+          <div class="flex min-h-24 items-center overflow-hidden rounded-lg bg-slate-800 p-4">
+            <div class="control-box h-14 w-14 shrink-0 rounded-xl bg-amber-400"></div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button class="control-button rounded-md bg-violet-600 px-3 py-2 text-sm hover:bg-violet-500" data-control="play">Play</button>
+            <button class="control-button rounded-md bg-slate-700 px-3 py-2 text-sm hover:bg-slate-600" data-control="pause">Pause</button>
+            <button class="control-button rounded-md bg-slate-700 px-3 py-2 text-sm hover:bg-slate-600" data-control="resume">Resume</button>
+            <button class="control-button rounded-md bg-slate-700 px-3 py-2 text-sm hover:bg-slate-600" data-control="reverse">Reverse</button>
+            <button class="control-button rounded-md bg-slate-700 px-3 py-2 text-sm hover:bg-slate-600" data-control="restart">Restart</button>
+            <button class="control-button rounded-md bg-rose-800 px-3 py-2 text-sm hover:bg-rose-700" data-control="kill">Kill</button>
+          </div>
+          <label class="mt-4 flex items-center gap-3 text-sm text-slate-300">
+            Speed <input id="speed-control" class="w-40 accent-violet-400" type="range" min="0.5" max="2" step="0.5" value="1" />
+            <span id="speed-value">1x</span>
+          </label>
+          <p id="control-status" class="mt-3 text-sm text-slate-400" aria-live="polite">Ready. Press Play.</p>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 3</p>
+          <h2 class="mt-1 text-3xl font-bold">GSAP timelines</h2>
+          <p class="mt-2 text-slate-400">A timeline is a playlist of animations. It helps you sequence them without adding separate delays.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">gsap.timeline()</code> creates the playlist.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Add animations with <code class="text-violet-300">.to()</code> and <code class="text-violet-300">.from()</code>.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">"&lt;"</code> starts with the previous animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">"&gt;"</code> starts after the previous animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">"-=0.5"</code> overlaps by half a second; <code class="text-violet-300">"+=1"</code> waits one second.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">A <code class="text-violet-300">label</code> gives a named place you can jump to.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">A nested timeline is a small timeline added to another timeline.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Timelines also have controls like <code class="text-violet-300">play()</code> and <code class="text-violet-300">pause()</code>.</p>
+        </div>
+        <div class="rounded-xl bg-slate-900 p-5">
+          <div class="grid gap-3 overflow-hidden rounded-lg bg-slate-800 p-4">
+            <div class="timeline-box h-9 w-9 rounded-lg bg-emerald-400"></div>
+            <div class="timeline-box h-9 w-9 rounded-lg bg-cyan-400"></div>
+            <div class="timeline-box h-9 w-9 rounded-lg bg-rose-400"></div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button class="timeline-control rounded-md bg-violet-600 px-3 py-2 text-sm" data-action="play">Play</button>
+            <button class="timeline-control rounded-md bg-slate-700 px-3 py-2 text-sm" data-action="pause">Pause</button>
+            <button class="timeline-control rounded-md bg-slate-700 px-3 py-2 text-sm" data-action="reverse">Reverse</button>
+            <button class="timeline-control rounded-md bg-slate-700 px-3 py-2 text-sm" data-action="restart">Restart</button>
+            <button id="timeline-label" class="rounded-md bg-slate-700 px-3 py-2 text-sm">Jump to “middle” label</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 4</p>
+          <h2 class="mt-1 text-3xl font-bold">Stagger animations</h2>
+          <p class="mt-2 text-slate-400">Stagger starts the same animation on a group of elements one after another.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">stagger: 0.1</code> adds 0.1 seconds between each start.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">amount: 1</code> spreads all starts across one second.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">from: "start"</code> starts at the first item; <code class="text-violet-300">"end"</code> starts at the last.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">"center"</code>, <code class="text-violet-300">"edges"</code>, and <code class="text-violet-300">"random"</code> change the order.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">For a grid, set <code class="text-violet-300">grid: [4, 4]</code> and a <code class="text-violet-300">from</code> position.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Put a staggered tween in a timeline to sequence it with other animations.</p>
+        </div>
+        <div class="rounded-xl bg-slate-900 p-5">
+          <div class="grid grid-cols-4 gap-3 rounded-lg bg-slate-800 p-5">
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+            <div class="grid-box aspect-square rounded-md bg-cyan-400"></div><div class="grid-box aspect-square rounded-md bg-cyan-400"></div>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button class="stagger-button rounded-md bg-violet-600 px-3 py-2 text-sm" data-from="start">From start</button>
+            <button class="stagger-button rounded-md bg-slate-700 px-3 py-2 text-sm" data-from="center">From center</button>
+            <button class="stagger-button rounded-md bg-slate-700 px-3 py-2 text-sm" data-from="edges">From edges</button>
+            <button class="stagger-button rounded-md bg-slate-700 px-3 py-2 text-sm" data-from="random">Random</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 5</p>
+          <h2 class="mt-1 text-3xl font-bold">ScrollTrigger</h2>
+          <p class="mt-2 text-slate-400">ScrollTrigger connects an animation to the page scroll. The plugin is loaded and registered in this project.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">trigger</code> is the element that starts watching the scroll.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">start</code> and <code class="text-violet-300">end</code> choose where it begins and finishes.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">scrub: true</code> ties animation progress to scroll position.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">pin: true</code> holds a section in place while it animates.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">toggleActions</code> sets what happens on enter, leave, and scroll back.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">markers: true</code> draws start/end guides while you learn.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">toggleClass</code> adds or removes a CSS class while active.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Add <code class="text-violet-300">scrollTrigger</code> to a timeline for scroll-based sequences.</p>
+        </div>
+        <div class="scroll-reveal-section flex min-h-[65vh] flex-col justify-center rounded-xl bg-slate-900 p-6">
+          <h3 class="text-xl font-semibold">Scroll down to this box</h3>
+          <p class="mt-2 text-sm text-slate-400">Markers are on for this example. Look for the green and red guide lines.</p>
+          <div class="mt-6 flex h-32 items-center overflow-hidden rounded-lg bg-slate-800 p-4">
+            <div class="scroll-reveal h-16 w-16 shrink-0 rounded-xl bg-lime-400"></div>
+          </div>
+        </div>
+        <div class="rounded-xl bg-slate-900 p-5">
+          <h3 class="font-semibold">Scrub and pin</h3>
+          <p class="mt-2 text-sm text-slate-400">Scroll to move the box. The next demo stays pinned briefly.</p>
+          <div class="scrub-area mt-4 flex h-28 items-center overflow-hidden rounded-lg bg-slate-800 p-4">
+            <div class="scrub-box h-14 w-14 shrink-0 rounded-lg bg-fuchsia-400"></div>
+          </div>
+          <div class="pin-section mt-6 grid min-h-56 place-items-center rounded-lg bg-indigo-950 p-6 text-center">
+            <div><p class="text-sm text-indigo-300">PINNED SECTION</p><p class="mt-2 text-xl font-bold">Keep scrolling to continue</p></div>
+          </div>
+          <div class="mt-6 flex h-28 items-center overflow-hidden rounded-lg bg-slate-800 p-4">
+            <div class="toggle-area-box h-14 w-14 shrink-0 rounded-lg bg-emerald-400"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 6</p>
+          <h2 class="mt-1 text-3xl font-bold">Advanced scroll animations</h2>
+          <p class="mt-2 text-slate-400">Use multiple triggers to tell a story as the visitor moves through the page.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Scroll-based storytelling reveals scenes in a chosen order.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Horizontal scrolling moves a row of panels sideways while the page scrolls.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Parallax moves background and foreground at different speeds.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Pinned sections hold a scene in place during its animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Scroll snapping gently brings the scroll to a scene boundary.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">containerAnimation</code> lets child triggers follow a horizontal animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Multiple triggers can control different elements independently.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">refresh()</code> recalculates positions; <code class="text-violet-300">invalidateOnRefresh</code> recalculates animation values too.</p>
+        </div>
+        <div>
+          <h3 class="mb-3 font-semibold">Horizontal scroll (keep scrolling)</h3>
+          <div class="horizontal-section overflow-hidden rounded-xl bg-slate-900 py-8">
+            <div class="horizontal-track flex w-max gap-4 px-6">
+              <article class="horizontal-panel grid h-64 w-[75vw] max-w-sm shrink-0 content-end rounded-xl bg-sky-700 p-6"><p class="text-sm text-sky-200">SCENE 01</p><h4 class="text-2xl font-bold">A story begins</h4><div class="horizontal-highlight mt-3 h-2 w-12 rounded bg-white"></div></article>
+              <article class="horizontal-panel grid h-64 w-[75vw] max-w-sm shrink-0 content-end rounded-xl bg-violet-700 p-6"><p class="text-sm text-violet-200">SCENE 02</p><h4 class="text-2xl font-bold">Move through space</h4></article>
+              <article class="horizontal-panel grid h-64 w-[75vw] max-w-sm shrink-0 content-end rounded-xl bg-rose-700 p-6"><p class="text-sm text-rose-200">SCENE 03</p><h4 class="text-2xl font-bold">Arrive somewhere new</h4></article>
+            </div>
+          </div>
+        </div>
+        <div class="parallax-area relative grid h-56 place-items-center overflow-hidden rounded-xl bg-slate-900">
+          <div class="parallax-circle absolute h-40 w-40 rounded-full bg-violet-500/30"></div>
+          <p class="relative text-lg font-semibold">Parallax: scroll to move the circle</p>
+        </div>
+        <button id="refresh-scroll" class="rounded-md bg-slate-700 px-3 py-2 text-sm hover:bg-slate-600">Refresh ScrollTrigger positions</button>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 7</p>
+          <h2 class="mt-1 text-3xl font-bold">Advanced GSAP tools</h2>
+          <p class="mt-2 text-slate-400">These helpers make animations easier to reuse, adjust, and adapt to the screen.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">gsap.set()</code> changes values immediately, without animating.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">gsap.utils.clamp()</code> keeps a number within limits.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">mapRange()</code> converts a number from one range to another.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">random()</code> makes a random value; <code class="text-violet-300">wrap()</code> loops through a range.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">quickTo()</code> quickly animates a value to a new target.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">quickSetter()</code> sets a value quickly without creating a tween each time.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">matchMedia()</code> runs different animation setups for different screens.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">context()</code> groups animations so you can clean them up together.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Responsive animations use media queries and refresh when their layout changes.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">GSAP can animate SVG attributes like position, rotation, and path drawing.</p>
+        </div>
+        <div class="grid gap-5 rounded-xl bg-slate-900 p-5">
+          <div>
+            <h3 class="mb-2 font-semibold">quickTo: move your pointer over the box</h3>
+            <div class="quick-area flex h-28 items-center overflow-hidden rounded-lg bg-slate-800 p-4"><div class="quick-box h-12 w-12 rounded-lg bg-cyan-400"></div></div>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">Utilities: make a random value</h3>
+            <button id="random-button" class="rounded-md bg-violet-600 px-3 py-2 text-sm">Pick a random number</button>
+            <span id="random-value" class="ml-3 text-sm text-slate-300" aria-live="polite"></span>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">matchMedia: this box changes on small screens</h3>
+            <div class="responsive-area flex h-24 items-center overflow-hidden rounded-lg bg-slate-800 p-3"><div class="responsive-box h-12 w-12 rounded-lg bg-amber-400"></div></div>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">SVG: animate an SVG circle</h3>
+            <div class="grid h-32 place-items-center rounded-lg bg-slate-800">
+              <svg width="70" height="70" viewBox="0 0 70 70" role="img" aria-label="Animated SVG circle"><circle class="svg-circle" cx="35" cy="35" r="24" fill="#a78bfa" /></svg>
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">context: create and clean up an animation</h3>
+            <div class="flex items-center gap-4 rounded-lg bg-slate-800 p-4"><div class="context-box h-10 w-10 rounded-lg bg-rose-400"></div><button id="context-button" class="rounded-md bg-slate-700 px-3 py-2 text-sm">Stop animation</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="space-y-6">
+        <div>
+          <p class="text-sm font-semibold text-violet-400">LEVEL 8</p>
+          <h2 class="mt-1 text-3xl font-bold">Interactive animations</h2>
+          <p class="mt-2 text-slate-400">Animations can respond to the pointer, clicks, and dragging.</p>
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2">
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Mouse-follow animations use pointer position to update an element.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">A custom cursor is a styled element that follows the pointer.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Hover effects animate when a pointer enters or leaves an element.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm">Click interactions run an animation when a button is pressed.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">Draggable</code> lets you drag an element and optionally set its bounds.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">SplitText</code> divides text into words or letters for animation.</p>
+          <p class="rounded-lg bg-slate-900 p-3 text-sm"><code class="text-violet-300">MorphSVGPlugin</code> smoothly changes one SVG shape into another.</p>
+        </div>
+        <div class="grid gap-5 rounded-xl bg-slate-900 p-5">
+          <div>
+            <h3 class="mb-2 font-semibold">Mouse follower / custom cursor</h3>
+            <div class="cursor-area relative grid h-40 place-items-center overflow-hidden rounded-lg bg-slate-800">
+              <p class="pointer-events-none text-sm text-slate-400">Move your pointer in this area</p>
+              <div class="custom-cursor pointer-events-none absolute left-0 top-0 h-8 w-8 rounded-full bg-violet-400/70"></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">Hover effect</h3>
+            <button class="hover-box rounded-lg bg-sky-600 px-6 py-4 font-semibold">Hover over me</button>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">Click interaction</h3>
+            <button id="click-box" class="rounded-lg bg-rose-500 px-6 py-4 font-semibold">Click me</button>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">Drag interaction</h3>
+            <div class="drag-area relative h-48 overflow-hidden rounded-lg bg-slate-800 p-4">
+              <div class="drag-box grid h-14 w-14 cursor-grab touch-none place-items-center rounded-lg bg-amber-400 text-xs font-bold text-slate-900 active:cursor-grabbing">DRAG</div>
+            </div>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">SplitText: animate each letter</h3>
+            <p class="split-text text-2xl font-bold">GSAP makes words move!</p>
+          </div>
+          <div>
+            <h3 class="mb-2 font-semibold">MorphSVG: change the circle into a star</h3>
+            <div class="grid h-32 place-items-center rounded-lg bg-slate-800">
+              <svg width="90" height="90" viewBox="0 0 100 100" role="img" aria-label="Morphing SVG shape">
+                <path class="morph-shape" fill="#34d399" d="M50 10 A40 40 0 1 1 49.9 10 Z" />
+                <defs><path id="star-shape" d="M50 5 L61 37 L95 38 L68 59 L77 92 L50 72 L23 92 L32 59 L5 38 L39 37 Z" /></defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
+        Keep experimenting. Small changes to duration, position, and ease can change the whole feel.
+      </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MorphSVGPlugin.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
