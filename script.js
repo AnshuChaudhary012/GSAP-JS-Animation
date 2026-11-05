@@ -188,14 +188,16 @@ gsap.to(".toggle-area-box", {
 // Level 6: horizontal scroll, snapping, containerAnimation, and parallax.
 const horizontalTrack = document.querySelector(".horizontal-track");
 const horizontalPanels = gsap.utils.toArray(".horizontal-panel");
+const getHorizontalDistance = () =>
+  Math.max(0, horizontalTrack.scrollWidth - horizontalTrack.parentElement.clientWidth);
 
 const horizontalTween = gsap.to(horizontalTrack, {
-  x: () => -(horizontalTrack.scrollWidth - window.innerWidth),
+  x: () => -getHorizontalDistance(),
   ease: "none",
   scrollTrigger: {
     trigger: ".horizontal-section",
     start: "top top",
-    end: () => `+=${horizontalTrack.scrollWidth - window.innerWidth}`,
+    end: () => `+=${getHorizontalDistance()}`,
     pin: true,
     scrub: 1,
     snap: 1 / (horizontalPanels.length - 1),
